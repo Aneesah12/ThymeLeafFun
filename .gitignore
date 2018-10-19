@@ -1,0 +1,15 @@
+.classpath
+.project
+.settings
+.~lock*
+.idea
+*.iml
+*.ipr
+*.iws
+classes
+.DS_Store
+*.log
+build/
+out/
+.gradle
+btm*.tlog
