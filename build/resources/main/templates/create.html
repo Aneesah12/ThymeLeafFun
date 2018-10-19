@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Create</h1>
+    <form action="#" th:action="@{/greeting}" th:object="${form}" method="post">
+        <fieldset>
+            <input type="submit" id="submitButton" th:value="Save">
+            <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+            <table>
+                <thead>
+                <tr>
+                    <th> Name</th>
+                    <th> City</th>
+                    <th> Employer</th>
+                    <th> Job Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="person, itemStat : *{people}">
+                    <td><input th:field="*{people[__${itemStat.index}__].firstName}" /></td>
+                    <td><input th:field="*{people[__${itemStat.index}__].city}" /></td>
+                    <td><input th:field="*{people[__${itemStat.index}__].employer}" /></td>
+                    <td><input th:field="*{people[__${itemStat.index}__].jobTitle}" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
